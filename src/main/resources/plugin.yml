@@ -1,0 +1,6 @@
+name: Quests
+version: '1.0-SNAPSHOT'
+main: com.moontegro.quests.Quests
+api-version: '1.21'
+authors: [ Moontegro ]
+website: https://moontegro.com
