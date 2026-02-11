@@ -1,6 +1,7 @@
 package com.moontegro.quests;
 
 import com.moontegro.quests.mongo.MongoManager;
+import com.moontegro.quests.profile.manager.ProfileManager;
 import com.moontegro.quests.quest.manager.QuestManager;
 import com.moontegro.quests.utils.config.Config;
 import lombok.Getter;
@@ -21,6 +22,7 @@ public final class Quests extends JavaPlugin {
 
     private MongoManager mongoManager;
     private QuestManager questManager;
+    private ProfileManager profileManager;
 
     @Override
     public void onEnable() {
@@ -32,12 +34,15 @@ public final class Quests extends JavaPlugin {
 
         this.mongoManager = new MongoManager();
         this.questManager = new QuestManager();
+        this.profileManager = new ProfileManager();
 
         this.questManager.load();
     }
 
     @Override
     public void onDisable() {
+        this.profileManager.saveAll();
+
         instance = null;
     }
 
