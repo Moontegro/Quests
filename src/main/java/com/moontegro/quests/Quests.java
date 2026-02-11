@@ -1,6 +1,7 @@
 package com.moontegro.quests;
 
 import com.moontegro.quests.mongo.MongoManager;
+import com.moontegro.quests.quest.manager.QuestManager;
 import com.moontegro.quests.utils.config.Config;
 import lombok.Getter;
 import org.bukkit.Bukkit;
@@ -19,6 +20,7 @@ public final class Quests extends JavaPlugin {
     private Config configuration, quests;
 
     private MongoManager mongoManager;
+    private QuestManager questManager;
 
     @Override
     public void onEnable() {
@@ -29,6 +31,9 @@ public final class Quests extends JavaPlugin {
         this.loadListeners(Bukkit.getPluginManager());
 
         this.mongoManager = new MongoManager();
+        this.questManager = new QuestManager();
+
+        this.questManager.load();
     }
 
     @Override
