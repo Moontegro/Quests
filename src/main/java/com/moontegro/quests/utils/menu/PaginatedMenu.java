@@ -3,6 +3,7 @@ package com.moontegro.quests.utils.menu;
 import com.moontegro.quests.Quests;
 import com.moontegro.quests.quest.Quest;
 import com.moontegro.quests.utils.color.Color;
+import com.moontegro.quests.utils.menu.holders.QuestInventoryHolder;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -11,37 +12,53 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataType;
 
 import java.util.*;
 
 public interface PaginatedMenu {
 
-    String title();
+    Component title();
     int size();
     Map<UUID, Integer> pages();
 
-    default void open(Player player, int page) {
-        pages().put(player.getUniqueId(), page);
+    default void open(Player player) {
+        int currentPage = pages().getOrDefault(player.getUniqueId(), 0);
+        int nextPage = currentPage + 1;
 
-        Inventory inventory = Bukkit.createInventory(player, size(), title());
+        if (!canFill(nextPage) && currentPage != 0) {
+            return;
+        }
 
-        Map<Integer, ItemStack> fill = fillItems(player, page);
+        pages().put(player.getUniqueId(), nextPage);
+
+        Inventory inventory = Bukkit.createInventory(
+                new QuestInventoryHolder(),
+                size(),
+                title()
+        );
+
+        Map<Integer, ItemStack> fill = fillItems(player, nextPage);
         fill.forEach(inventory::setItem);
 
-        if (page > 0) {
+        if (nextPage > 0) {
             inventory.setItem(size() - 9, previousPage());
         }
 
-        if ((page + 1) * slots().size() <
-                Quests.getInstance().getQuestManager().getQuests().size()) {
+        if (canFill(nextPage + 1)) {
             inventory.setItem(size() - 1, nextPage());
         }
 
         player.openInventory(inventory);
     }
 
-    default void open(Player player) {
-        open(player, 1);
+    default boolean canFill(int page) {
+        int minimumItems = page * 9;
+
+        return Quests.getInstance()
+                .getQuestManager()
+                .getQuests()
+                .size() > minimumItems;
     }
 
     default Map<Integer, ItemStack> fillItems(Player player, int page) {
@@ -82,6 +99,7 @@ public interface PaginatedMenu {
         ItemStack itemStack = new ItemStack(Material.valueOf(Quests.getInstance().getConfiguration().getConfiguration().getString("next-page.item")));
         ItemMeta meta = itemStack.getItemMeta();
         meta.displayName(Color.translate(Quests.getInstance().getConfiguration().getConfiguration().getString("next-page.name")));
+        meta.getPersistentDataContainer().set(Quests.getInstance().getButton(), PersistentDataType.STRING, "next_page");
         itemStack.setItemMeta(meta);
         return itemStack;
     }
@@ -90,6 +108,7 @@ public interface PaginatedMenu {
         ItemStack itemStack = new ItemStack(Material.valueOf(Quests.getInstance().getConfiguration().getConfiguration().getString("previous-page.item")));
         ItemMeta meta = itemStack.getItemMeta();
         meta.displayName(Color.translate(Quests.getInstance().getConfiguration().getConfiguration().getString("previous-page.name")));
+        meta.getPersistentDataContainer().set(Quests.getInstance().getButton(), PersistentDataType.STRING, "previous_page");
         itemStack.setItemMeta(meta);
         return itemStack;
     }

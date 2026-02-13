@@ -1,0 +1,13 @@
+package com.moontegro.quests.utils.menu.holders;
+
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.InventoryHolder;
+import org.jetbrains.annotations.NotNull;
+
+public class QuestInventoryHolder implements InventoryHolder {
+
+    @Override
+    public @NotNull Inventory getInventory() {
+        return null;
+    }
+}

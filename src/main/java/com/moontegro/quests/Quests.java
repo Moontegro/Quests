@@ -1,11 +1,14 @@
 package com.moontegro.quests;
 
+import com.moontegro.quests.command.QuestCommand;
 import com.moontegro.quests.mongo.MongoManager;
 import com.moontegro.quests.profile.manager.ProfileManager;
 import com.moontegro.quests.quest.manager.QuestManager;
 import com.moontegro.quests.utils.config.Config;
+import com.moontegro.quests.utils.menu.manager.MenuManager;
 import lombok.Getter;
 import org.bukkit.Bukkit;
+import org.bukkit.NamespacedKey;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -23,6 +26,9 @@ public final class Quests extends JavaPlugin {
     private MongoManager mongoManager;
     private QuestManager questManager;
     private ProfileManager profileManager;
+    private MenuManager menuManager;
+
+    private final NamespacedKey button = new NamespacedKey(this, "button");
 
     @Override
     public void onEnable() {
@@ -35,6 +41,7 @@ public final class Quests extends JavaPlugin {
         this.mongoManager = new MongoManager();
         this.questManager = new QuestManager();
         this.profileManager = new ProfileManager();
+        this.menuManager = new MenuManager();
 
         this.questManager.load();
     }
@@ -61,6 +68,6 @@ public final class Quests extends JavaPlugin {
     }
 
     private void loadCommands() {
-
+        getCommand("quest").setExecutor(new QuestCommand());
     }
 }
