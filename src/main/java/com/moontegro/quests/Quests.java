@@ -1,6 +1,8 @@
 package com.moontegro.quests;
 
 import com.moontegro.quests.command.QuestCommand;
+import com.moontegro.quests.listener.ProfileListener;
+import com.moontegro.quests.listener.QuestMenuListener;
 import com.moontegro.quests.mongo.MongoManager;
 import com.moontegro.quests.profile.manager.ProfileManager;
 import com.moontegro.quests.quest.manager.QuestManager;
@@ -64,7 +66,8 @@ public final class Quests extends JavaPlugin {
     }
 
     private void loadListeners(PluginManager pluginManager) {
-
+        pluginManager.registerEvents(new ProfileListener(), this);
+        pluginManager.registerEvents(new QuestMenuListener(), this);
     }
 
     private void loadCommands() {

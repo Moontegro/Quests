@@ -13,6 +13,7 @@ import java.util.UUID;
 public class QuestInventory implements PaginatedMenu {
 
     private final Quests plugin = Quests.getInstance();
+    private final Map<UUID, Integer> pages = new HashMap<>();
 
     @Override
     public Component title() {
@@ -26,7 +27,7 @@ public class QuestInventory implements PaginatedMenu {
 
     @Override
     public Map<UUID, Integer> pages() {
-        return new HashMap<>();
+        return pages;
     }
 
     @Override

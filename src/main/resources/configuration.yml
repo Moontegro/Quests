@@ -1,3 +1,5 @@
+mongo-uri: "mongodb+srv://admin:123Zenia%40@cluster0.topt9cd.mongodb.net/"
+
 next-page:
   item: "ARROW"
   name: "&cNext Page"

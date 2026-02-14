@@ -22,3 +22,434 @@ quests:
         - HIDE_ATTRIBUTES
         - HIDE_ENCHANTS
       custom-model-data: 105
+
+  2:
+    id: 2
+    type: "MINING"
+    target: "DIAMOND_ORE"
+    required-amount: 10
+    reward-command: "eco give %player% 1000"
+    reward-items: []
+    gui-item:
+      material: DIAMOND_PICKAXE
+      name: "&b&lDiamond Miner &7(ID: #2)"
+      lore:
+        - ""
+        - "&7Goal: &fMine 10 Diamonds"
+        - "&7Progress: &e%progress%&7/&e%required% &8(%percentage%%)"
+        - ""
+        - "&7Rewards:"
+        - " &8- &a$1,000"
+        - ""
+        - "&eClick to track this quest!"
+      flags:
+        - HIDE_ATTRIBUTES
+        - HIDE_ENCHANTS
+      custom-model-data: 105
+
+  3:
+    id: 3
+    type: "MINING"
+    target: "DIAMOND_ORE"
+    required-amount: 10
+    reward-command: "eco give %player% 1000"
+    reward-items: []
+    gui-item:
+      material: DIAMOND_PICKAXE
+      name: "&b&lDiamond Miner &7(ID: #3)"
+      lore:
+        - ""
+        - "&7Goal: &fMine 10 Diamonds"
+        - "&7Progress: &e%progress%&7/&e%required% &8(%percentage%%)"
+        - ""
+        - "&7Rewards:"
+        - " &8- &a$1,000"
+        - ""
+        - "&eClick to track this quest!"
+      flags:
+        - HIDE_ATTRIBUTES
+        - HIDE_ENCHANTS
+      custom-model-data: 105
+
+  4:
+    id: 4
+    type: "MINING"
+    target: "DIAMOND_ORE"
+    required-amount: 10
+    reward-command: "eco give %player% 1000"
+    reward-items: []
+    gui-item:
+      material: DIAMOND_PICKAXE
+      name: "&b&lDiamond Miner &7(ID: #4)"
+      lore:
+        - ""
+        - "&7Goal: &fMine 10 Diamonds"
+        - "&7Progress: &e%progress%&7/&e%required% &8(%percentage%%)"
+        - ""
+        - "&7Rewards:"
+        - " &8- &a$1,000"
+        - ""
+        - "&eClick to track this quest!"
+      flags:
+        - HIDE_ATTRIBUTES
+        - HIDE_ENCHANTS
+      custom-model-data: 105
+
+  5:
+    id: 5
+    type: "MINING"
+    target: "DIAMOND_ORE"
+    required-amount: 10
+    reward-command: "eco give %player% 1000"
+    reward-items: []
+    gui-item:
+      material: DIAMOND_PICKAXE
+      name: "&b&lDiamond Miner &7(ID: #5)"
+      lore:
+        - ""
+        - "&7Goal: &fMine 10 Diamonds"
+        - "&7Progress: &e%progress%&7/&e%required% &8(%percentage%%)"
+        - ""
+        - "&7Rewards:"
+        - " &8- &a$1,000"
+        - ""
+        - "&eClick to track this quest!"
+      flags:
+        - HIDE_ATTRIBUTES
+        - HIDE_ENCHANTS
+      custom-model-data: 105
+
+  6:
+    id: 6
+    type: "MINING"
+    target: "DIAMOND_ORE"
+    required-amount: 10
+    reward-command: "eco give %player% 1000"
+    reward-items: []
+    gui-item:
+      material: DIAMOND_PICKAXE
+      name: "&b&lDiamond Miner &7(ID: #6)"
+      lore:
+        - ""
+        - "&7Goal: &fMine 10 Diamonds"
+        - "&7Progress: &e%progress%&7/&e%required% &8(%percentage%%)"
+        - ""
+        - "&7Rewards:"
+        - " &8- &a$1,000"
+        - ""
+        - "&eClick to track this quest!"
+      flags:
+        - HIDE_ATTRIBUTES
+        - HIDE_ENCHANTS
+      custom-model-data: 105
+
+  7:
+    id: 7
+    type: "MINING"
+    target: "DIAMOND_ORE"
+    required-amount: 10
+    reward-command: "eco give %player% 1000"
+    reward-items: []
+    gui-item:
+      material: DIAMOND_PICKAXE
+      name: "&b&lDiamond Miner &7(ID: #7)"
+      lore:
+        - ""
+        - "&7Goal: &fMine 10 Diamonds"
+        - "&7Progress: &e%progress%&7/&e%required% &8(%percentage%%)"
+        - ""
+        - "&7Rewards:"
+        - " &8- &a$1,000"
+        - ""
+        - "&eClick to track this quest!"
+      flags:
+        - HIDE_ATTRIBUTES
+        - HIDE_ENCHANTS
+      custom-model-data: 105
+
+  8:
+    id: 8
+    type: "MINING"
+    target: "DIAMOND_ORE"
+    required-amount: 10
+    reward-command: "eco give %player% 1000"
+    reward-items: []
+    gui-item:
+      material: DIAMOND_PICKAXE
+      name: "&b&lDiamond Miner &7(ID: #8)"
+      lore:
+        - ""
+        - "&7Goal: &fMine 10 Diamonds"
+        - "&7Progress: &e%progress%&7/&e%required% &8(%percentage%%)"
+        - ""
+        - "&7Rewards:"
+        - " &8- &a$1,000"
+        - ""
+        - "&eClick to track this quest!"
+      flags:
+        - HIDE_ATTRIBUTES
+        - HIDE_ENCHANTS
+      custom-model-data: 105
+
+  9:
+    id: 9
+    type: "MINING"
+    target: "DIAMOND_ORE"
+    required-amount: 10
+    reward-command: "eco give %player% 1000"
+    reward-items: []
+    gui-item:
+      material: DIAMOND_PICKAXE
+      name: "&b&lDiamond Miner &7(ID: #9)"
+      lore:
+        - ""
+        - "&7Goal: &fMine 10 Diamonds"
+        - "&7Progress: &e%progress%&7/&e%required% &8(%percentage%%)"
+        - ""
+        - "&7Rewards:"
+        - " &8- &a$1,000"
+        - ""
+        - "&eClick to track this quest!"
+      flags:
+        - HIDE_ATTRIBUTES
+        - HIDE_ENCHANTS
+      custom-model-data: 105
+  10:
+    id: 10
+    type: "MINING"
+    target: "DIAMOND_ORE"
+    required-amount: 10
+    reward-command: "eco give %player% 1000"
+    reward-items: []
+    gui-item:
+      material: IRON_PICKAXE
+      name: "&b&lDiamond Miner &7(ID: #10)"
+      lore:
+        - ""
+        - "&7Goal: &fMine 10 Diamonds"
+        - "&7Progress: &e%progress%&7/&e%required% &8(%percentage%%)"
+        - ""
+        - "&7Rewards:"
+        - " &8- &a$1,000"
+        - ""
+        - "&eClick to track this quest!"
+      flags:
+        - HIDE_ATTRIBUTES
+        - HIDE_ENCHANTS
+      custom-model-data: 105
+
+  11:
+    id: 11
+    type: "MINING"
+    target: "DIAMOND_ORE"
+    required-amount: 10
+    reward-command: "eco give %player% 1000"
+    reward-items: []
+    gui-item:
+      material: DIAMOND_PICKAXE
+      name: "&b&lDiamond Miner &7(ID: #11)"
+      lore:
+        - ""
+        - "&7Goal: &fMine 10 Diamonds"
+        - "&7Progress: &e%progress%&7/&e%required% &8(%percentage%%)"
+        - ""
+        - "&7Rewards:"
+        - " &8- &a$1,000"
+        - ""
+        - "&eClick to track this quest!"
+      flags:
+        - HIDE_ATTRIBUTES
+        - HIDE_ENCHANTS
+      custom-model-data: 105
+
+  12:
+    id: 12
+    type: "MINING"
+    target: "DIAMOND_ORE"
+    required-amount: 10
+    reward-command: "eco give %player% 1000"
+    reward-items: []
+    gui-item:
+      material: DIAMOND_PICKAXE
+      name: "&b&lDiamond Miner &7(ID: #12)"
+      lore:
+        - ""
+        - "&7Goal: &fMine 10 Diamonds"
+        - "&7Progress: &e%progress%&7/&e%required% &8(%percentage%%)"
+        - ""
+        - "&7Rewards:"
+        - " &8- &a$1,000"
+        - ""
+        - "&eClick to track this quest!"
+      flags:
+        - HIDE_ATTRIBUTES
+        - HIDE_ENCHANTS
+      custom-model-data: 105
+
+  13:
+    id: 13
+    type: "MINING"
+    target: "DIAMOND_ORE"
+    required-amount: 10
+    reward-command: "eco give %player% 1000"
+    reward-items: []
+    gui-item:
+      material: DIAMOND_PICKAXE
+      name: "&b&lDiamond Miner &7(ID: #13)"
+      lore:
+        - ""
+        - "&7Goal: &fMine 10 Diamonds"
+        - "&7Progress: &e%progress%&7/&e%required% &8(%percentage%%)"
+        - ""
+        - "&7Rewards:"
+        - " &8- &a$1,000"
+        - ""
+        - "&eClick to track this quest!"
+      flags:
+        - HIDE_ATTRIBUTES
+        - HIDE_ENCHANTS
+      custom-model-data: 105
+
+  14:
+    id: 14
+    type: "MINING"
+    target: "DIAMOND_ORE"
+    required-amount: 10
+    reward-command: "eco give %player% 1000"
+    reward-items: []
+    gui-item:
+      material: DIAMOND_PICKAXE
+      name: "&b&lDiamond Miner &7(ID: #14)"
+      lore:
+        - ""
+        - "&7Goal: &fMine 10 Diamonds"
+        - "&7Progress: &e%progress%&7/&e%required% &8(%percentage%%)"
+        - ""
+        - "&7Rewards:"
+        - " &8- &a$1,000"
+        - ""
+        - "&eClick to track this quest!"
+      flags:
+        - HIDE_ATTRIBUTES
+        - HIDE_ENCHANTS
+      custom-model-data: 105
+
+  15:
+    id: 15
+    type: "MINING"
+    target: "DIAMOND_ORE"
+    required-amount: 10
+    reward-command: "eco give %player% 1000"
+    reward-items: []
+    gui-item:
+      material: DIAMOND_PICKAXE
+      name: "&b&lDiamond Miner &7(ID: #15)"
+      lore:
+        - ""
+        - "&7Goal: &fMine 10 Diamonds"
+        - "&7Progress: &e%progress%&7/&e%required% &8(%percentage%%)"
+        - ""
+        - "&7Rewards:"
+        - " &8- &a$1,000"
+        - ""
+        - "&eClick to track this quest!"
+      flags:
+        - HIDE_ATTRIBUTES
+        - HIDE_ENCHANTS
+      custom-model-data: 105
+
+  16:
+    id: 16
+    type: "MINING"
+    target: "DIAMOND_ORE"
+    required-amount: 10
+    reward-command: "eco give %player% 1000"
+    reward-items: []
+    gui-item:
+      material: DIAMOND_PICKAXE
+      name: "&b&lDiamond Miner &7(ID: #16)"
+      lore:
+        - ""
+        - "&7Goal: &fMine 10 Diamonds"
+        - "&7Progress: &e%progress%&7/&e%required% &8(%percentage%%)"
+        - ""
+        - "&7Rewards:"
+        - " &8- &a$1,000"
+        - ""
+        - "&eClick to track this quest!"
+      flags:
+        - HIDE_ATTRIBUTES
+        - HIDE_ENCHANTS
+      custom-model-data: 105
+
+  17:
+    id: 17
+    type: "MINING"
+    target: "DIAMOND_ORE"
+    required-amount: 10
+    reward-command: "eco give %player% 1000"
+    reward-items: []
+    gui-item:
+      material: DIAMOND_PICKAXE
+      name: "&b&lDiamond Miner &7(ID: #17)"
+      lore:
+        - ""
+        - "&7Goal: &fMine 10 Diamonds"
+        - "&7Progress: &e%progress%&7/&e%required% &8(%percentage%%)"
+        - ""
+        - "&7Rewards:"
+        - " &8- &a$1,000"
+        - ""
+        - "&eClick to track this quest!"
+      flags:
+        - HIDE_ATTRIBUTES
+        - HIDE_ENCHANTS
+      custom-model-data: 105
+
+  18:
+    id: 18
+    type: "MINING"
+    target: "DIAMOND_ORE"
+    required-amount: 10
+    reward-command: "eco give %player% 1000"
+    reward-items: []
+    gui-item:
+      material: DIAMOND_PICKAXE
+      name: "&b&lDiamond Miner &7(ID: #18)"
+      lore:
+        - ""
+        - "&7Goal: &fMine 10 Diamonds"
+        - "&7Progress: &e%progress%&7/&e%required% &8(%percentage%%)"
+        - ""
+        - "&7Rewards:"
+        - " &8- &a$1,000"
+        - ""
+        - "&eClick to track this quest!"
+      flags:
+        - HIDE_ATTRIBUTES
+        - HIDE_ENCHANTS
+      custom-model-data: 105
+
+  19:
+    id: 19
+    type: "MINING"
+    target: "DIAMOND_ORE"
+    required-amount: 10
+    reward-command: "eco give %player% 1000"
+    reward-items: []
+    gui-item:
+      material: DIAMOND_PICKAXE
+      name: "&b&lDiamond Miner &7(ID: #19)"
+      lore:
+        - ""
+        - "&7Goal: &fMine 10 Diamonds"
+        - "&7Progress: &e%progress%&7/&e%required% &8(%percentage%%)"
+        - ""
+        - "&7Rewards:"
+        - " &8- &a$1,000"
+        - ""
+        - "&eClick to track this quest!"
+      flags:
+        - HIDE_ATTRIBUTES
+        - HIDE_ENCHANTS
+      custom-model-data: 105

@@ -7,7 +7,6 @@ import com.moontegro.quests.utils.menu.holders.QuestInventoryHolder;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -23,14 +22,8 @@ public interface PaginatedMenu {
     Map<UUID, Integer> pages();
 
     default void open(Player player) {
-        int currentPage = pages().getOrDefault(player.getUniqueId(), 0);
-        int nextPage = currentPage + 1;
 
-        if (!canFill(nextPage) && currentPage != 0) {
-            return;
-        }
-
-        pages().put(player.getUniqueId(), nextPage);
+        int currentPage = pages().computeIfAbsent(player.getUniqueId(), uuid -> 1);
 
         Inventory inventory = Bukkit.createInventory(
                 new QuestInventoryHolder(),
@@ -38,14 +31,14 @@ public interface PaginatedMenu {
                 title()
         );
 
-        Map<Integer, ItemStack> fill = fillItems(player, nextPage);
-        fill.forEach(inventory::setItem);
+        Map<Integer, ItemStack> items = fillItems(player, currentPage);
+        items.forEach(inventory::setItem);
 
-        if (nextPage > 0) {
+        if (currentPage > 1) {
             inventory.setItem(size() - 9, previousPage());
         }
 
-        if (canFill(nextPage + 1)) {
+        if (canFill(currentPage + 1)) {
             inventory.setItem(size() - 1, nextPage());
         }
 
@@ -53,15 +46,17 @@ public interface PaginatedMenu {
     }
 
     default boolean canFill(int page) {
-        int minimumItems = page * 9;
+        int itemsPerPage = slots().size();
+        int startIndex = (page - 1) * itemsPerPage;
 
         return Quests.getInstance()
                 .getQuestManager()
                 .getQuests()
-                .size() > minimumItems;
+                .size() > startIndex;
     }
 
     default Map<Integer, ItemStack> fillItems(Player player, int page) {
+
         List<Quest<?>> quests = new ArrayList<>(
                 Quests.getInstance().getQuestManager().getQuests().values()
         );
@@ -69,10 +64,11 @@ public interface PaginatedMenu {
         List<Integer> slots = slots();
         Map<Integer, ItemStack> inventorySlots = new HashMap<>();
 
-        int start = page * slots.size();
+        int start = (page - 1) * slots.size();
         int end = Math.min(start + slots.size(), quests.size());
 
         for (int i = start; i < end; i++) {
+
             Quest<?> quest = quests.get(i);
             int slot = slots.get(i - start);
 
@@ -81,7 +77,42 @@ public interface PaginatedMenu {
 
             if (meta != null) {
                 meta.displayName(Color.translate(quest.getGuiItemName()));
-                meta.lore(new ArrayList<>());
+                int progress = 5;
+                int required = quest.getAmount();
+
+                double percentDouble = (double) progress / required;
+                int percent = (int) (percentDouble * 100);
+
+                int barLength = 5; // total blocks in bar
+                int filledBars = (int) Math.round(percentDouble * barLength);
+
+                StringBuilder bar = new StringBuilder("&8[");
+
+                for (int x = 0; x < barLength; x++) {
+                    if (x < filledBars) {
+                        bar.append("&a■");
+                    } else {
+                        bar.append("&7□");
+                    }
+                }
+
+                bar.append("&8]");
+
+                List<Component> lore = new ArrayList<>();
+
+                for (String l : quest.getGuiLore()) {
+
+                    String replaced = l
+                            .replace("%progress%", String.valueOf(progress))
+                            .replace("%required%", String.valueOf(required))
+                            .replace("%percentage%", bar + " &7" + percent + "%");
+
+                    lore.add(Color.translate(replaced));
+                }
+
+                meta.lore(lore);
+
+                meta.lore(lore);
                 itemStack.setItemMeta(meta);
             }
 
@@ -92,24 +123,39 @@ public interface PaginatedMenu {
     }
 
     default List<Integer> slots() {
-        return Quests.getInstance().getConfiguration().getConfiguration().getIntegerList("quest-inventory.available-slots");
+        return Quests.getInstance()
+                .getConfiguration()
+                .getConfiguration()
+                .getIntegerList("quest-inventory.available-slots");
     }
 
     default ItemStack nextPage() {
-        ItemStack itemStack = new ItemStack(Material.valueOf(Quests.getInstance().getConfiguration().getConfiguration().getString("next-page.item")));
-        ItemMeta meta = itemStack.getItemMeta();
-        meta.displayName(Color.translate(Quests.getInstance().getConfiguration().getConfiguration().getString("next-page.name")));
-        meta.getPersistentDataContainer().set(Quests.getInstance().getButton(), PersistentDataType.STRING, "next_page");
-        itemStack.setItemMeta(meta);
-        return itemStack;
+        ItemStack item = new ItemStack(Material.ARROW);
+        ItemMeta meta = item.getItemMeta();
+
+        meta.displayName(Color.translate("&aNext Page"));
+        meta.getPersistentDataContainer().set(
+                Quests.getInstance().getButton(),
+                PersistentDataType.STRING,
+                "next_page"
+        );
+
+        item.setItemMeta(meta);
+        return item;
     }
 
     default ItemStack previousPage() {
-        ItemStack itemStack = new ItemStack(Material.valueOf(Quests.getInstance().getConfiguration().getConfiguration().getString("previous-page.item")));
-        ItemMeta meta = itemStack.getItemMeta();
-        meta.displayName(Color.translate(Quests.getInstance().getConfiguration().getConfiguration().getString("previous-page.name")));
-        meta.getPersistentDataContainer().set(Quests.getInstance().getButton(), PersistentDataType.STRING, "previous_page");
-        itemStack.setItemMeta(meta);
-        return itemStack;
+        ItemStack item = new ItemStack(Material.ARROW);
+        ItemMeta meta = item.getItemMeta();
+
+        meta.displayName(Color.translate("&cPrevious Page"));
+        meta.getPersistentDataContainer().set(
+                Quests.getInstance().getButton(),
+                PersistentDataType.STRING,
+                "previous_page"
+        );
+
+        item.setItemMeta(meta);
+        return item;
     }
 }
